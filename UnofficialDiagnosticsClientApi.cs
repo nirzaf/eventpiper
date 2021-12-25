@@ -37,7 +37,7 @@ namespace eventpiper
         public static DiagnosticsClient WaitForProcessToConnect(ReversedServer server, int pid)
         {
             var endpointInfo = serverAccept.Invoke(server, new object[] { TimeSpan.FromSeconds(15.0) });
-            while ((int)ipcEndpointInfoProcessIdProperty.GetValue(endpointInfo) != pid)
+            while ((int)ipcEndpointInfoProcessIdProperty.GetValue(endpointInfo)! != pid)
             {
                 endpointInfo = serverAccept.Invoke(server, new object[] { TimeSpan.FromSeconds(15.0) });
             }
